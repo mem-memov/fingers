@@ -16,7 +16,6 @@ void setup()
   for ( buttonIndex = 0; buttonIndex < BUTTON_COUNT; buttonIndex++ ) {
     pinMode(buttons[buttonIndex], INPUT_PULLUP);
   }
-  
 }
 
 int noButtonPresseed() 
