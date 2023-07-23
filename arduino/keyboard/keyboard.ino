@@ -56,13 +56,18 @@ void printCodeBytes()
   Serial.println();
 }
 
-void loop() 
+void listenToPins()
 {
   int buttonIndex;
   for ( buttonIndex = 0; buttonIndex < BUTTON_COUNT; buttonIndex++ ) {
     int isUp = ! digitalRead(buttons[buttonIndex]) == HIGH;
     setCodeByte(buttonIndex, isUp);
   }
+}
+
+void loop() 
+{
+  listenToPins();
 
   if (noButtonPresseed()) {
     if (! codeBytesClear()) {
