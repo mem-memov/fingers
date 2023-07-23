@@ -23,7 +23,6 @@ import collection.JavaConverters._
    {
       if (event.getEventType() == SerialPort.LISTENING_EVENT_DATA_AVAILABLE) {
 
-        import com.google.common.primitives.Bytes
         var newData = new Array[Byte](commPort.bytesAvailable())
         val numRead = commPort.readBytes(newData, newData.length)
         newData.map(_.toChar).foreach { char =>

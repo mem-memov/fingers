@@ -9,6 +9,5 @@ lazy val root = project
     scalaVersion := scala3Version,
 
     libraryDependencies += "com.fazecast" % "jSerialComm" % "[2.0.0,3.0.0)",
-    libraryDependencies += "com.google.guava" % "guava" % "17.0",
     libraryDependencies += "org.scalameta" %% "munit" % "0.7.29" % Test
   )
