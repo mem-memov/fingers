@@ -1,5 +1,5 @@
 import com.fazecast.jSerialComm.*
-import net.mem_memov.fingers.MessageListener
+import net.mem_memov.fingers.{MessageListener, Symbol}
 
 import collection.JavaConverters.*
 
@@ -12,7 +12,8 @@ import collection.JavaConverters.*
   val isOpen = comPort.openPort()
 
   val process = (bits: Array[Boolean]) =>
-    bits.map(if _ then "1" else "0").map(print)
+    val symbol = Symbol(bits)
+    println(symbol.toString())
     println()
 
   val listener = MessageListener(process)

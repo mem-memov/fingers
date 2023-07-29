@@ -2,7 +2,9 @@ package net.mem_memov.fingers
 
 import com.fazecast.jSerialComm.*
 
-case class MessageListener(process: Array[Boolean] => Unit) extends SerialPortMessageListener:
+case class MessageListener(
+  process: Array[Boolean] => Unit
+) extends SerialPortMessageListener:
 
   override def getMessageDelimiter: Array[Byte] =
 
