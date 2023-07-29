@@ -53,10 +53,10 @@ void clearCodeBytes()
 
 void printCodeBytes()
 {
-  // Serial.print(codeBytes[0]);
-  // Serial.print(codeBytes[1]);
-  // Serial.print(codeBytes[2]);
-  // Serial.println();
+  Serial.print(codeBytes[0]);
+  Serial.print(codeBytes[1]);
+  Serial.print(codeBytes[2]);
+  Serial.println();
 }
 
 void listenToPins()
