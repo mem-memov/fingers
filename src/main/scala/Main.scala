@@ -39,7 +39,7 @@ import collection.JavaConverters._
               ((byteInt >> 7) & 1) == 1,
             )
             val s = byteBits.map(bit => if bit then "1" else "0").mkString("")
-            print(s)
+            print(s.reverse)
             print(" ")
           else
 //            print(char)
