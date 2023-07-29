@@ -3,9 +3,9 @@ import collection.JavaConverters._
 
 @main def hello: Unit =
   val commPorts = SerialPort.getCommPorts()
-  println("COM ports:")
+//  println("COM ports:")
   commPorts.map(commPort => println(commPort.getSystemPortName()))
-  print(commPorts.length)
+//  print(commPorts.length)
   val commPort = commPorts(0)
 
   // default connection settings for Arduino
@@ -42,7 +42,8 @@ import collection.JavaConverters._
             print(s)
             print(" ")
           else
-            print(char)
+//            print(char)
+            println()
         }
       }
    }

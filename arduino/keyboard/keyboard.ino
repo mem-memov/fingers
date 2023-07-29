@@ -28,7 +28,8 @@ int noButtonPresseed()
 void setCodeByte(int buttonIndex, int isUp) 
 {
   int byteIndex = buttonIndex / 8;
-  int bitIndex = buttonIndex % 8;
+  int bitIndex = 7 - (buttonIndex % 8);
+
 
   if (isUp) {
     buttonBytes[byteIndex] |= 1 << bitIndex;
@@ -52,10 +53,10 @@ void clearCodeBytes()
 
 void printCodeBytes()
 {
-  Serial.print(codeBytes[0]);
-  Serial.print(codeBytes[1]);
-  Serial.print(codeBytes[2]);
-  Serial.println();
+  // Serial.print(codeBytes[0]);
+  // Serial.print(codeBytes[1]);
+  // Serial.print(codeBytes[2]);
+  // Serial.println();
 }
 
 void listenToPins()
