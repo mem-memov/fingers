@@ -12,7 +12,7 @@ unsigned char codeBytes[3] = { 0, 0, 0 };
 
 void setup() 
 {
-  Serial.begin(9600);
+  Serial.begin(9600, SERIAL_8N1);
 
   int buttonIndex;
   for ( buttonIndex = 0; buttonIndex < BUTTON_COUNT; buttonIndex++ ) {
@@ -29,7 +29,6 @@ void setCodeByte(int buttonIndex, int isUp)
 {
   int byteIndex = buttonIndex / 8;
   int bitIndex = 7 - (buttonIndex % 8);
-
 
   if (isUp) {
     buttonBytes[byteIndex] |= 1 << bitIndex;
@@ -54,7 +53,9 @@ void clearCodeBytes()
 void printCodeBytes()
 {
   Serial.print(codeBytes[0]);
+  Serial.print(" ");
   Serial.print(codeBytes[1]);
+  Serial.print(" ");
   Serial.print(codeBytes[2]);
   Serial.println();
 }
