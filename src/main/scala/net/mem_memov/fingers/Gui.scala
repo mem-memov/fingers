@@ -2,7 +2,7 @@ package net.mem_memov.fingers
 
 import net.mem_memov.fingers.model.SymbolModel
 import net.mem_memov.fingers.viewModel.TextViewModel
-import scalafx.application.JFXApp3
+import scalafx.application.{JFXApp3, Platform}
 import scalafx.geometry.Insets
 import scalafx.scene.Scene
 import scalafx.scene.canvas.Canvas
@@ -21,29 +21,28 @@ object Gui extends JFXApp3:
   //  comPort.setComPortTimeouts(SerialPort.TIMEOUT_READ_SEMI_BLOCKING, 0, 0)
   val isOpen: Boolean = comPort.openPort()
 
-  def checkPort(): Unit =
-
-    if comPort.isOpen then
-      println("Port is open")
-    else
-      println("Port is closed")
-
   override def start(): Unit = {
 
-    checkPort()
+    var textViewModel = TextViewModel.empty
 
-    val textViewModel = TextViewModel.empty
+
 
     val process = (bits: Array[Boolean]) =>
       val symbolModel = SymbolModel(bits)
-//      textViewModel.addSymbol(symbolModel)
-      checkPort()
+
+      val runnable = new Runnable {
+        override def run(): Unit = {
+          textViewModel.addSymbol(symbolModel)
+        }
+      }
+
       println(symbolModel.toString)
       println()
-      ()
+
+      Platform.runLater(runnable)
 
     val listener = MessageListener(process)
-    comPort.addDataListener(listener)
+
 
     stage = new JFXApp3.PrimaryStage {
       title = "Fingers"
@@ -52,6 +51,8 @@ object Gui extends JFXApp3:
         content = textViewModel.textView.pane
       }
     }
+
+    comPort.addDataListener(listener)
   }
 
   override def stopApp(): Unit =
