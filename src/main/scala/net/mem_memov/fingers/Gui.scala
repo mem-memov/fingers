@@ -21,14 +21,25 @@ object Gui extends JFXApp3:
   //  comPort.setComPortTimeouts(SerialPort.TIMEOUT_READ_SEMI_BLOCKING, 0, 0)
   val isOpen: Boolean = comPort.openPort()
 
+  def checkPort(): Unit =
+
+    if comPort.isOpen then
+      println("Port is open")
+    else
+      println("Port is closed")
+
   override def start(): Unit = {
+
+    checkPort()
 
     val textViewModel = TextViewModel.empty
 
     val process = (bits: Array[Boolean]) =>
       val symbolModel = SymbolModel(bits)
-      textViewModel.addSymbol(symbolModel)
-      println("rrr")
+//      textViewModel.addSymbol(symbolModel)
+      checkPort()
+      println(symbolModel.toString)
+      println()
       ()
 
     val listener = MessageListener(process)
