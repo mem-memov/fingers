@@ -1,6 +1,6 @@
-import net.mem_memov.fingers.Console
+import net.mem_memov.fingers.{Console, Gui}
 
-@main def console: Unit =
+def app: Unit =
 
   Console.run()
 
