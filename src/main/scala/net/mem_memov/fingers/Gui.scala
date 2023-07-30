@@ -36,8 +36,8 @@ object Gui extends JFXApp3:
         }
       }
 
-      println(symbolModel.toString)
-      println()
+//      println(symbolModel.toString)
+//      println()
 
       Platform.runLater(runnable)
 

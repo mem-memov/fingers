@@ -19,6 +19,8 @@ object TextView:
 
     val flowPane = new FlowPane() {
       padding = Insets(50, 80, 50, 80)
+      hgap = 6
+      vgap = 6
     }
 
     TextView(flowPane)
