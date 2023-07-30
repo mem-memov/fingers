@@ -1,10 +1,10 @@
 #define BUTTON_COUNT 24
 
 int buttons[BUTTON_COUNT] = {
- 30, 32, 34, 36, 38, 40, // left top
- 31, 33, 35, 37, 39, 41, // left bottom
- 52, 50, 48, 46, 44, 42, // right top
- 53, 51, 49, 47, 45, 43  // right bottom
+  53, 52, 51, 50, 49, 48, // left top
+  47, 46, 45, 44, 43, 42, // left bottom
+  41, 40, 39, 38, 37, 36, // right top
+  35, 34, 33, 32, 31, 30  // right bottom
 };
 
 unsigned char buttonBytes[3] = { 0, 0, 0 };
