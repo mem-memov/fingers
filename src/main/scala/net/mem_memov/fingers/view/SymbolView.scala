@@ -18,13 +18,13 @@ object SymbolView:
 
   def fromModel(symbolModel: SymbolModel): SymbolView =
 
-    val dotWidth = 4
-    val dotHeight = 4
+    val dotWidth = 6
+    val dotHeight = 6
     val symbolWidth = dotWidth * 6
     val symbolHeight = dotWidth * 4
 
     val trueColor = Color.Black
-    val falseColor = Color.White
+    val falseColor = Color.LightGray
 
     val canvas = new Canvas(symbolWidth, symbolHeight)
 
