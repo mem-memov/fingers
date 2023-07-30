@@ -18,7 +18,7 @@ object TextView:
   lazy val empty: TextView =
 
     val flowPane = new FlowPane() {
-      padding = Insets(50, 80, 50, 80)
+      padding = Insets(10, 10, 10, 10)
       hgap = 6
       vgap = 6
     }

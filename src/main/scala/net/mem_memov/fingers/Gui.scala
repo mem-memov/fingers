@@ -23,9 +23,7 @@ object Gui extends JFXApp3:
 
   override def start(): Unit = {
 
-    var textViewModel = TextViewModel.empty
-
-
+    val textViewModel = TextViewModel.empty
 
     val process = (bits: Array[Boolean]) =>
       val symbolModel = SymbolModel(bits)
