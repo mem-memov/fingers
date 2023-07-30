@@ -36,9 +36,6 @@ object Gui extends JFXApp3:
         }
       }
 
-//      println(symbolModel.toString)
-//      println()
-
       Platform.runLater(runnable)
 
     val listener = MessageListener(process)
